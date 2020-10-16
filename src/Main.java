@@ -1,10 +1,5 @@
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -20,9 +15,10 @@ public class Main {
         loadedPlayers.add(new Player(name,wins,totalPlayed));
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException,ClassNotFoundException {
         //ArrayList<Player> storedPlayers = readFromFile("storedPlayers.txt");
-        ArrayList<Player> currentPlayers = new ArrayList<>();
+        ArrayList<Player> currentPlayers;
+        currentPlayers = Player.loadPlayersFromFile();
 
 
         Player p1 = new Player("Dan",5,10);
@@ -32,12 +28,14 @@ public class Main {
         currentPlayers.add(p1);
         currentPlayers.add(p2);
         currentPlayers.add(p3);
+
+
         System.out.print(currentPlayers.toString());
 
-        addNewPlayers(currentPlayers);
 
-        System.out.println(currentPlayers);
-        Player.savePlayersToFile(currentPlayers);
+        //addNewPlayers(currentPlayers);
+
+        //Player.savePlayersToFile(currentPlayers);
 
 
 
