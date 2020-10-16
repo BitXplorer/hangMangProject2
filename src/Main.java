@@ -22,22 +22,22 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         //ArrayList<Player> storedPlayers = readFromFile("storedPlayers.txt");
-        ArrayList<Player> loadedPlayers = new ArrayList<>();
+        ArrayList<Player> currentPlayers = new ArrayList<>();
 
 
         Player p1 = new Player("Dan",5,10);
         Player p2 = new Player("Antene",30,40);
         Player p3 = new Player("Joel",3,5);
 
-        loadedPlayers.add(p1);
-        loadedPlayers.add(p2);
-        loadedPlayers.add(p3);
-        System.out.print(loadedPlayers.toString());
+        currentPlayers.add(p1);
+        currentPlayers.add(p2);
+        currentPlayers.add(p3);
+        System.out.print(currentPlayers.toString());
 
-        addNewPlayers(loadedPlayers);
+        addNewPlayers(currentPlayers);
 
-        System.out.println(loadedPlayers);
-        Player.saveToFile(loadedPlayers);
+        System.out.println(currentPlayers);
+        Player.savePlayersToFile(currentPlayers);
 
 
 
