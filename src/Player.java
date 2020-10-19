@@ -19,7 +19,7 @@ public class Player implements Serializable {
         }
 
          public static void savePlayersToFile(ArrayList<Player> currentPlayers) throws IOException {
-            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("storedPlayers"));
+            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("storedPlayers.txt"));
             //File savePlayers = new File ("storedPlayers.txt");
             //PrintWriter out = new PrintWriter(savePlayers);
             output.writeObject(currentPlayers);
@@ -29,7 +29,7 @@ public class Player implements Serializable {
         }
 
         public static ArrayList<Player> loadPlayersFromFile() throws IOException, ClassNotFoundException {
-            ObjectInputStream input = new ObjectInputStream(new FileInputStream("storedPlayers"));
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream("storedPlayers.txt"));
             ArrayList<Player> loadedPlayers = new ArrayList<>();
 
             try (input){
@@ -41,7 +41,7 @@ public class Player implements Serializable {
             return loadedPlayers;
         }
 
-
+        @Override
         public String toString(){
             return "Name: " + name + ", " +
                     "Wins: " + wins + ", " +

@@ -17,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException,ClassNotFoundException {
         //ArrayList<Player> storedPlayers = readFromFile("storedPlayers.txt");
-        ArrayList<Player> currentPlayers;
+        ArrayList<Player> currentPlayers = new ArrayList<Player>();
         currentPlayers = Player.loadPlayersFromFile();
 
 
@@ -35,7 +35,7 @@ public class Main {
 
         //addNewPlayers(currentPlayers);
 
-        //Player.savePlayersToFile(currentPlayers);
+        Player.savePlayersToFile(currentPlayers);
 
 
 
