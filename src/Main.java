@@ -9,12 +9,11 @@ public class Main {
 
 
         Player p1 = new Player("Woop",5,10);
-        Player p2 = new Player("test2",30,40);
+        String p2 = "test1";
         Player p3 = new Player("Harry",3,5);
 
-        //Player.addPlayer(p2);
+        Player.newPlayer(p2);
         Player.showAllPlayers();
-        //Player.savePlayersToFile();
 
         Player.savePlayersToFile();
 
