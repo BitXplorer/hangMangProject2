@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 
 public class Player implements Serializable {
+        private static final long serialVersionUID = 1337;
 
         private static ArrayList<Player> currentPlayers = new ArrayList<>();
         private String name;
@@ -23,15 +24,24 @@ public class Player implements Serializable {
 
         public static void newPlayer(String name){
             boolean doesExist = checkExistingPlayer(name);
-            int wins = 0;
-            int totalGamesPlayed = 0;
-            Player currentPlayer = new Player(name,wins,totalGamesPlayed);
+
+            Player currentPlayer;
 
             if (!doesExist) {
+                int wins = 0;
+                int totalGamesPlayed = 0;
+                currentPlayer = new Player(name, wins, totalGamesPlayed);
                 currentPlayers.add(currentPlayer);
             } else {
                 loadPlayer(name);
             }
+        }
+
+        //TODO create method to check current Player against main, use Player object in main instead of ArrayList.
+        public static Player loadPlayer(String name){
+            int index = currentPlayers.indexOf(name);
+            Player existingPlayer = currentPlayers.get(index);
+            return existingPlayer;
         }
 
 
@@ -48,13 +58,6 @@ public class Player implements Serializable {
                     return true;
                 }
             } return false;
-        }
-
-
-        public static Player loadPlayer(Player currentPlayer){
-            int index = currentPlayers.indexOf(currentPlayer);
-            Player existingPlayer = currentPlayers.get(index);
-            return existingPlayer;
         }
 
 
